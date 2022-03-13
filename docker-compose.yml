@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  nuxt:
+    build: ./docker/nuxt
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    tty: true
+    command: /bin/sh -c "cd app && yarn install && yarn dev"
+      # mysql:
+      #   image: "mysql:8.0"
+      #   ports:
+      #     - "3306:3306"
+      #   environment:
+      #     MYSQL_ROOT_PASSWORD: "admin"
+      #     MYSQL_USER: "test"
+      #     MYSQL_PASSWORD: "test"
+      #     MYSQL_DATABASE: "test"
