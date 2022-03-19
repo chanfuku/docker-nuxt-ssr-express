@@ -9,12 +9,12 @@ services:
     working_dir: /workspace
     tty: true
     command: /bin/sh -c "cd app && yarn install && yarn dev"
-      # mysql:
-      #   image: "mysql:8.0"
-      #   ports:
-      #     - "3306:3306"
-      #   environment:
-      #     MYSQL_ROOT_PASSWORD: "admin"
-      #     MYSQL_USER: "test"
-      #     MYSQL_PASSWORD: "test"
-      #     MYSQL_DATABASE: "test"
+  mysql:
+    image: "mysql:8.0"
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
